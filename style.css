@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.spacer {
+    height: 200vh; /* Sayfanın aşağı inmesini sağlıyoruz */
+}
+    
