@@ -1,12 +1,12 @@
-# Three.js Toz Küresi Animasyonu
 
-<p align="center">
-  <img src="anasayfa.png" alt="Toz Küresi Animasyonu" />
-</p>
-
-## 🌟 Proje Tanıtımı
+## 🌟 Proje Tanıtımı ~ Three.js Toz Küresi Animasyonu
 
 Bu proje, Three.js kullanarak interaktif bir 3D toz küresi animasyonu oluşturur. Başlangıçta dağınık olarak görüntülenen parçacıklar, zaman içinde birleşerek düzensiz bir taş/küre benzeri yapı oluşturur. Kullanıcı fare ile yapıyı döndürebilir ve sayfa kaydırma ile parçacıkların hareketini etkileyebilir.
+
+<a href="https://youtu.be/hGS7ElkIqBM" title="Yönetim Paneli Tanıtım Videosu">
+  <img src="anasayfa.png" alt="Toz Küresi Animasyonu" />    <br>
+    <b>▶️ Tanıtım Videosunu izlemek için lütfen tıklayınız!</b>
+  </a>
 
 ## 📋 İçindekiler
 
@@ -22,6 +22,7 @@ Bu proje, Three.js kullanarak interaktif bir 3D toz küresi animasyonu oluşturu
 ## 🔧 Kurulum
 
 1. Projeyi GitHub'dan klonlayın:
+
    ```bash
    git clone https://github.com/mehmetdogandev/3D-Animation-with-Three-JS.git
    ```
@@ -41,15 +42,22 @@ Proje aşağıdaki dosyalardan oluşmaktadır:
 ## 🔍 Kodun Detaylı Açıklaması
 
 ### 1. Sahne Oluşturma
+
 Script.js dosyası Three.js sahnesinin kurulumu ile başlar. Öncelikle temel Three.js bileşenlerini oluşturuyoruz:
 
 ```javascript
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 ```
 
 ### 2. Parçacık Sistemi
+
 Projenin kalbi, bir parçacık sistemidir. Yaklaşık 16.000 parçacık kullanarak taş benzeri bir form oluşturuyoruz:
 
 ```javascript
@@ -60,25 +68,27 @@ const particlesGeometry = new THREE.BufferGeometry();
 Her parçacık için 3D uzayda bir konum ve hareket hızı tanımlanır. Parçacıklar önce rastgele dağıtılır, ardından animasyon sırasında küresel formda bir araya gelir.
 
 ### 3. Animasyon Sistemi
+
 `formationAnimation()` fonksiyonu, dağınık parçacıkların düzenli bir küre formuna geçişini sağlar:
 
 ```javascript
 function formationAnimation() {
-    if (animationProgress < 1) {
-        animationProgress += 0.01;
-        
-        for (let i = 0; i < particlesCount; i++) {
-            positions[i * 3] += (originalPositions[i * 3] - positions[i * 3]) * 0.05;
-            // ... diğer pozisyon güncellemeleri
-        }
-        
-        particlesGeometry.attributes.position.needsUpdate = true;
-        requestAnimationFrame(formationAnimation);
+  if (animationProgress < 1) {
+    animationProgress += 0.01;
+
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i * 3] += (originalPositions[i * 3] - positions[i * 3]) * 0.05;
+      // ... diğer pozisyon güncellemeleri
     }
+
+    particlesGeometry.attributes.position.needsUpdate = true;
+    requestAnimationFrame(formationAnimation);
+  }
 }
 ```
 
 ### 4. Etkileşim Kontrolü
+
 Kullanıcı etkileşimi için fare olayları dinlenir ve OrbitControls ile 3D nesneler üzerinde kontrol sağlanır:
 
 ```javascript
@@ -88,13 +98,14 @@ controls.enableDamping = true;
 ```
 
 ### 5. Duyarlı Tasarım
+
 Tarayıcı boyutu değişikliklerine göre canvasin boyutları otomatik olarak güncellenir:
 
 ```javascript
-window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+window.addEventListener("resize", () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 });
 ```
 
@@ -129,9 +140,10 @@ Mehmet DOĞAN - mehmetdogan.dev@gmail.com
 Proje Bağlantısı: https://github.com/mehmetdogandev/imagecription
 
 ### Sosyal Medya & Web
-* **Website**: memetdogan.com
-* **LinkedIn**: linkedin.com/in/mehmetdogandev
-* **YouTube**: youtube.com/@md-kare
+
+- **Website**: memetdogan.com
+- **LinkedIn**: linkedin.com/in/mehmetdogandev
+- **YouTube**: youtube.com/@md-kare
 
 ## 📄 Lisans
 
