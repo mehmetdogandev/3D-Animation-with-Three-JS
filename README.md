@@ -1,7 +1,7 @@
 # Three.js Toz Küresi Animasyonu
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400" alt="Toz Küresi Animasyonu" />
+  <img src="anasayfa.png" alt="Toz Küresi Animasyonu" />
 </p>
 
 ## 🌟 Proje Tanıtımı
